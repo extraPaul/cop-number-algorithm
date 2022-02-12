@@ -89,9 +89,14 @@ class ComboGraph(object):
 class MultiComboGraph(object):
     # Creates a new vertex with empty edges.
     # @param vName Name of the vertex
-    def __init__(self, directed=True):
+    def __init__(self, directed=True, force_movement=False):
         self.vList:list[MultiCombination] = []
         self.directed = directed
+
+        # This relates to the type of game.
+        # In the first version of the game, we have the choice to move or stay put.
+        # In the second version of the game, we are forced to move.
+        self.force_movement = force_movement
 
     def add_vertex(self, c: MultiCombination):
         self.vList.append(c)
@@ -112,6 +117,26 @@ class MultiComboGraph(object):
 
     def rober_list(self):
         return list(filter(lambda v: not v.cop_turn, self.vList))
+
+    def check_legal_cop_move(self, c1: MultiCombination, c2: MultiCombination):
+        """ Return true if a move from c1 to c2 is legal for a cop, and false otherwise. This depends on the version of the game."""
+
+        # Here c1 is a cop turn, and c2 is the rober turn
+        if self.force_movement:
+            return c1.check_existing_adjascent_cops(c2)
+        else:
+            return (c1.check_cops_equal(c2) or c2.check_existing_adjascent_cops(c1))
+
+    
+    def check_legal_rober_move(self, c1: MultiCombination, c2: MultiCombination):
+        """ Return true if a move from c1 to c2 is legal for a cop, and false otherwise. This depends on the version of the game."""
+
+        # Here c1 is a cop turn, and c2 is the rober turn
+        if self.force_movement:
+            return c2.check_existing_adjascent_cops(c1)
+        else:
+            return (c1.rober == c2.rober or c1.rober.is_adjacent(c2.rober))
+
 
     def __repr__(self):
          return "MultiComboGraph() object"

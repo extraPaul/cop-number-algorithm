@@ -28,7 +28,7 @@ class Combination(object):
 class MultiCombination(object):
     # Creates a new vertex with empty edges.
     # @param vName Name of the vertex
-    def __init__(self, cops: list[Vertex], rober: Vertex, is_cop=False):
+    def __init__(self, cops: list[Vertex], rober: Vertex, is_cop=False, force_movement=False):
         self.cops = cops
         self.rober = rober
         self.cop_turn = is_cop
@@ -68,6 +68,7 @@ class MultiCombination(object):
             return False
         else:
             return True
+
 
     def __eq__(self, other):
         return self.name == other.name

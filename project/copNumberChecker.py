@@ -177,13 +177,13 @@ class CopNumberChecker:
         for cmb in cmbGraph.vList:
             if cmb.cop_turn:
                 # Find all combinations where u has an edge to u'
-                adjacent = [x for x in cmbGraph.vList if (not x.cop_turn and x.rober == cmb.rober and (x.check_cops_equal(cmb) or x.check_existing_adjascent_cops(cmb)))]
+                adjacent = [x for x in cmbGraph.vList if (not x.cop_turn and x.rober == cmb.rober and cmbGraph.check_legal_cop_move(cmb, x))]
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
             else:
                 # This is a rober turn
-                adjacent = [x for x in cmbGraph.vList if x.cop_turn and x.check_cops_equal(cmb) and (x.rober == cmb.rober or x.rober.is_adjacent(cmb.rober))]
+                adjacent = [x for x in cmbGraph.vList if x.cop_turn and x.check_cops_equal(cmb) and cmbGraph.check_legal_rober_move(cmb, x)]
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
