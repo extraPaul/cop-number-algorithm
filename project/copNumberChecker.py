@@ -1,5 +1,3 @@
-
-
 from project.models.combination import Combination, MultiCombination
 from project.models.graph import ComboGraph, Graph, MultiComboGraph
 
@@ -154,7 +152,9 @@ class CopNumberChecker:
         # first define the lists of combinations
         comboList = list(itertools.product(g.get_key_list(), repeat=n+1))
 
-        cmbGraph = MultiComboGraph()
+        # cmbGraph = MultiComboGraph()
+        cmbGraph = MultiComboGraph(force_movement=True)
+
         print("GENERATING COMBO GRAPH")
         for keyCombo in comboList:
             vrtList = [g.find_by_name(x) for x in keyCombo]
@@ -187,7 +187,7 @@ class CopNumberChecker:
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
-            # print(cmb)
+            print(cmb)
             # print("Added edges for combo " + cmb.name)
 
         # I think this is slower
@@ -223,14 +223,17 @@ class CopNumberChecker:
                     if markedNeighbor is not None:
                         c.marked = True
                         newMarked = True
+                        print("MARKING " + str(c))
                 else:
                     # This is a rober turn
                     # if all neighbours are marked, mark this one. If there are no unmarked neighbours, they're all marked
                     unmarkedNeighbor = next((x for x in c.adjacent if not x.marked), None)
 
+                    # Make sure to check that there are any neighbouts at all
                     if unmarkedNeighbor is None:
                         c.marked = True
                         newMarked = True
+                        print("MARKING " + str(c))
 
         print("\n=============== AFTER MARKING =================")
         print("Iterations " + str(iterations))

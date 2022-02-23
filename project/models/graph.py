@@ -98,6 +98,11 @@ class MultiComboGraph(object):
         # In the second version of the game, we are forced to move.
         self.force_movement = force_movement
 
+        if force_movement:
+            print("FULLY ACTIVE COPS AND ROBERS")
+        else:
+            print("REGULAR COPS AND ROBERS")
+
     def add_vertex(self, c: MultiCombination):
         self.vList.append(c)
 
@@ -129,11 +134,11 @@ class MultiComboGraph(object):
 
     
     def check_legal_rober_move(self, c1: MultiCombination, c2: MultiCombination):
-        """ Return true if a move from c1 to c2 is legal for a cop, and false otherwise. This depends on the version of the game."""
+        """ Return true if a move from c1 to c2 is legal for a rober, and false otherwise. This depends on the version of the game."""
 
-        # Here c1 is a cop turn, and c2 is the rober turn
+        # Here c1 is a rober turn, and c2 is the cop turn
         if self.force_movement:
-            return c2.check_existing_adjascent_cops(c1)
+            return c1.rober.is_adjacent(c2.rober)
         else:
             return (c1.rober == c2.rober or c1.rober.is_adjacent(c2.rober))
 
