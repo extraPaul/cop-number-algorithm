@@ -148,12 +148,11 @@ class CopNumberChecker:
             return False
 
     @staticmethod
-    def checkCopNumberN(g: Graph, n: int):
+    def checkCopNumberN(g: Graph, n: int, active: bool):
         # first define the lists of combinations
         comboList = list(itertools.product(g.get_key_list(), repeat=n+1))
 
-        # cmbGraph = MultiComboGraph()
-        cmbGraph = MultiComboGraph(force_movement=True)
+        cmbGraph = MultiComboGraph(force_movement=active)
 
         print("GENERATING COMBO GRAPH")
         for keyCombo in comboList:
@@ -175,19 +174,22 @@ class CopNumberChecker:
         print("ADDING EDGES")
         # Add all the edges in the combo graph
         for cmb in cmbGraph.vList:
+            # NOTE: Use generators instead of creating lists, to save on memory
+            # https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+
             if cmb.cop_turn:
-                # Find all combinations where u has an edge to u'
-                adjacent = [x for x in cmbGraph.vList if (not x.cop_turn and x.rober == cmb.rober and cmbGraph.check_legal_cop_move(cmb, x))]
+                # Generate all combinations where u has an edge to u'
+                adjacent = (x for x in cmbGraph.vList if (not x.cop_turn and x.rober == cmb.rober and cmbGraph.check_legal_cop_move(cmb, x)))
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
             else:
                 # This is a rober turn
-                adjacent = [x for x in cmbGraph.vList if x.cop_turn and x.check_cops_equal(cmb) and cmbGraph.check_legal_rober_move(cmb, x)]
+                adjacent = (x for x in cmbGraph.vList if x.cop_turn and x.check_cops_equal(cmb) and cmbGraph.check_legal_rober_move(cmb, x))
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
-            print(cmb)
+            # print(cmb)
             # print("Added edges for combo " + cmb.name)
 
         # I think this is slower

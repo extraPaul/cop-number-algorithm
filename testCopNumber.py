@@ -7,10 +7,14 @@ from project.graphTransformation import graphObjectFromJSON
 
 # default graph is the square
 graphName = "square"
+activeGame = False
 
 # NOTE: sys.argv[0] is the the name of the script
-if len(sys.argv) == 2:
+if len(sys.argv) > 1:
     graphName = sys.argv[1]
+
+if len(sys.argv) > 2:
+    activeGame = "-a" in sys.argv 
  
 # Opening JSON file
 # f = open('graphs/triangleGraph.json')
@@ -38,7 +42,7 @@ num = 1
 copWin = False
 
 while not copWin:
-    copWin = CopNumberChecker.checkCopNumberN(graph, num)
+    copWin = CopNumberChecker.checkCopNumberN(graph, num, activeGame)
 
     if copWin:
         print("Cop number IS " + str(num))

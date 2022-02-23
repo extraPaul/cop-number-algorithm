@@ -37,7 +37,7 @@ class MultiCombination(object):
 
         self.name = ""
         for c in cops:
-            self.name += c.name
+            self.name += c.name + "-"
 
         self.name += (rober.name + ("-Cop" if is_cop else "-Rob"))
 
