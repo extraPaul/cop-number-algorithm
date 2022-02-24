@@ -1,3 +1,4 @@
+from math import floor
 from project.models.combination import Combination, MultiCombination
 from project.models.graph import ComboGraph, Graph, MultiComboGraph
 
@@ -171,6 +172,13 @@ class CopNumberChecker:
             cmbGraph.add_vertex(cmb1)
             cmbGraph.add_vertex(cmb2)
 
+        # To keep track of progress
+        index = 0
+        total = len(cmbGraph.vList)
+        gap = floor(total/10)
+        percentage = 0
+        print("Total vertices in auxilary graph: " + str(total))
+        print(gap)
         print("ADDING EDGES")
         # Add all the edges in the combo graph
         for cmb in cmbGraph.vList:
@@ -189,6 +197,12 @@ class CopNumberChecker:
 
                 for combo in adjacent:
                     cmb.add_edge(combo)
+            
+            index += 1
+            if index == gap:
+                percentage += 10
+                print("Progress: " + str(percentage) + "%")
+                index = 0
             # print(cmb)
             # print("Added edges for combo " + cmb.name)
 
@@ -241,7 +255,7 @@ class CopNumberChecker:
         print("Iterations " + str(iterations))
         # print(cmbGraph)
 
-        print(cmbGraph.unmarked_list())
+        # print(cmbGraph.unmarked_list())
         if len(cmbGraph.unmarked_list()) == 0:
             # This means all combinations are marked
             return True
