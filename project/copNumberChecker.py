@@ -175,10 +175,9 @@ class CopNumberChecker:
         # To keep track of progress
         index = 0
         total = len(cmbGraph.vList)
-        gap = floor(total/10)
+        gap = floor(total/100)
         percentage = 0
         print("Total vertices in auxilary graph: " + str(total))
-        print(gap)
         print("ADDING EDGES")
         # Add all the edges in the combo graph
         for cmb in cmbGraph.vList:
@@ -200,7 +199,7 @@ class CopNumberChecker:
             
             index += 1
             if index == gap:
-                percentage += 10
+                percentage += 1
                 print("Progress: " + str(percentage) + "%")
                 index = 0
             # print(cmb)
@@ -239,7 +238,7 @@ class CopNumberChecker:
                     if markedNeighbor is not None:
                         c.marked = True
                         newMarked = True
-                        print("MARKING " + str(c))
+                        # print("MARKING " + str(c))
                 else:
                     # This is a rober turn
                     # if all neighbours are marked, mark this one. If there are no unmarked neighbours, they're all marked
@@ -249,7 +248,7 @@ class CopNumberChecker:
                     if unmarkedNeighbor is None:
                         c.marked = True
                         newMarked = True
-                        print("MARKING " + str(c))
+                        # print("MARKING " + str(c))
 
         print("\n=============== AFTER MARKING =================")
         print("Iterations " + str(iterations))
