@@ -111,6 +111,19 @@ class MultiComboGraph(object):
         if not self.directed:
             c2.add_edge(c1)
 
+    def get_edges(self):
+        edgeList = []
+        for cmb in self.vList:
+            for adj in cmb.adjacent:
+                edge = (cmb.name, adj.name)
+                edgeList.append(edge)
+
+        return edgeList
+
+    @staticmethod
+    def get_vertex_keys(vList):
+        return list(map(lambda v: v.name, vList))
+
     def marked_list(self):
         return list(filter(lambda v: v.marked, self.vList))
 

@@ -150,9 +150,23 @@ class CopNumberChecker:
 
     @staticmethod
     def checkCopNumberN(g: Graph, n: int, active: bool):
+
+        cmbGraph = CopNumberChecker.generate_combo_graph(g, n, active)
+
+        CopNumberChecker.markComboGraph(cmbGraph)
+
+        # print(cmbGraph.unmarked_list())
+        if len(cmbGraph.unmarked_list()) == 0:
+            # This means all combinations are marked
+            return True
+        else:
+            return False
+
+
+    @staticmethod
+    def generate_combo_graph(g: Graph, n: int, active: bool):
         # first define the lists of combinations
         comboList = list(itertools.product(g.get_key_list(), repeat=n+1))
-
         cmbGraph = MultiComboGraph(force_movement=active)
 
         print("GENERATING COMBO GRAPH")
@@ -221,7 +235,11 @@ class CopNumberChecker:
         #     print("Added edges for combo " + cmb.name)
 
         # print(cmbGraph)
+        return cmbGraph
 
+
+    @staticmethod
+    def markComboGraph(cmbGraph: MultiComboGraph):
         newMarked = True
         iterations = 0
         while newMarked:
@@ -253,10 +271,3 @@ class CopNumberChecker:
         print("\n=============== AFTER MARKING =================")
         print("Iterations " + str(iterations))
         # print(cmbGraph)
-
-        # print(cmbGraph.unmarked_list())
-        if len(cmbGraph.unmarked_list()) == 0:
-            # This means all combinations are marked
-            return True
-        else:
-            return False
