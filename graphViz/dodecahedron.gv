@@ -1,0 +1,52 @@
+graph dodecahedron {
+	A
+	B
+	E
+	F
+	C
+	H
+	D
+	J
+	L
+	N
+	G
+	O
+	Q
+	I
+	R
+	K
+	S
+	M
+	T
+	P
+	A -- B
+	A -- E
+	A -- F
+	B -- C
+	B -- H
+	E -- D
+	E -- N
+	F -- G
+	F -- O
+	C -- D
+	C -- J
+	H -- G
+	H -- I
+	D -- L
+	J -- I
+	J -- K
+	L -- K
+	L -- M
+	N -- M
+	N -- O
+	G -- Q
+	O -- P
+	Q -- P
+	Q -- R
+	I -- R
+	R -- S
+	K -- S
+	S -- T
+	M -- T
+	T -- P
+}

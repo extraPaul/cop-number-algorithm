@@ -1,0 +1,14 @@
+graph h1 {
+	A
+	B
+	D
+	C
+	E
+	A -- B
+	A -- D
+	B -- C
+	B -- E
+	D -- C
+	D -- E
+	C -- E
+}

@@ -1,0 +1,140 @@
+digraph square {
+	subgraph cluster_0 {
+		color=invis
+		label="Cop Turn"
+		"A-A-Cop" [label="A-A" style=filled]
+		"A-B-Cop" [label="A-B"]
+		"A-C-Cop" [label="A-C"]
+		"A-D-Cop" [label="A-D"]
+		"B-A-Cop" [label="B-A"]
+		"B-B-Cop" [label="B-B" style=filled]
+		"B-C-Cop" [label="B-C"]
+		"B-D-Cop" [label="B-D"]
+		"C-A-Cop" [label="C-A"]
+		"C-B-Cop" [label="C-B"]
+		"C-C-Cop" [label="C-C" style=filled]
+		"C-D-Cop" [label="C-D"]
+		"D-A-Cop" [label="D-A"]
+		"D-B-Cop" [label="D-B"]
+		"D-C-Cop" [label="D-C"]
+		"D-D-Cop" [label="D-D" style=filled]
+	}
+	subgraph cluster_1 {
+		color=invis
+		label="Robber Turn"
+		"A-A-Rob" [label="A-A" style=filled]
+		"A-B-Rob" [label="A-B"]
+		"A-C-Rob" [label="A-C"]
+		"A-D-Rob" [label="A-D"]
+		"B-A-Rob" [label="B-A"]
+		"B-B-Rob" [label="B-B" style=filled]
+		"B-C-Rob" [label="B-C"]
+		"B-D-Rob" [label="B-D"]
+		"C-A-Rob" [label="C-A"]
+		"C-B-Rob" [label="C-B"]
+		"C-C-Rob" [label="C-C" style=filled]
+		"C-D-Rob" [label="C-D"]
+		"D-A-Rob" [label="D-A"]
+		"D-B-Rob" [label="D-B"]
+		"D-C-Rob" [label="D-C"]
+		"D-D-Rob" [label="D-D" style=filled]
+	}
+	"A-A-Cop" -> "A-A-Rob"
+	"A-A-Cop" -> "B-A-Rob"
+	"A-A-Cop" -> "D-A-Rob"
+	"A-A-Rob" -> "A-A-Cop"
+	"A-A-Rob" -> "A-B-Cop"
+	"A-A-Rob" -> "A-D-Cop"
+	"A-B-Cop" -> "A-B-Rob"
+	"A-B-Cop" -> "B-B-Rob"
+	"A-B-Cop" -> "D-B-Rob"
+	"A-B-Rob" -> "A-A-Cop"
+	"A-B-Rob" -> "A-B-Cop"
+	"A-B-Rob" -> "A-C-Cop"
+	"A-C-Cop" -> "A-C-Rob"
+	"A-C-Cop" -> "B-C-Rob"
+	"A-C-Cop" -> "D-C-Rob"
+	"A-C-Rob" -> "A-B-Cop"
+	"A-C-Rob" -> "A-C-Cop"
+	"A-C-Rob" -> "A-D-Cop"
+	"A-D-Cop" -> "A-D-Rob"
+	"A-D-Cop" -> "B-D-Rob"
+	"A-D-Cop" -> "D-D-Rob"
+	"A-D-Rob" -> "A-A-Cop"
+	"A-D-Rob" -> "A-C-Cop"
+	"A-D-Rob" -> "A-D-Cop"
+	"B-A-Cop" -> "A-A-Rob"
+	"B-A-Cop" -> "B-A-Rob"
+	"B-A-Cop" -> "C-A-Rob"
+	"B-A-Rob" -> "B-A-Cop"
+	"B-A-Rob" -> "B-B-Cop"
+	"B-A-Rob" -> "B-D-Cop"
+	"B-B-Cop" -> "A-B-Rob"
+	"B-B-Cop" -> "B-B-Rob"
+	"B-B-Cop" -> "C-B-Rob"
+	"B-B-Rob" -> "B-A-Cop"
+	"B-B-Rob" -> "B-B-Cop"
+	"B-B-Rob" -> "B-C-Cop"
+	"B-C-Cop" -> "A-C-Rob"
+	"B-C-Cop" -> "B-C-Rob"
+	"B-C-Cop" -> "C-C-Rob"
+	"B-C-Rob" -> "B-B-Cop"
+	"B-C-Rob" -> "B-C-Cop"
+	"B-C-Rob" -> "B-D-Cop"
+	"B-D-Cop" -> "A-D-Rob"
+	"B-D-Cop" -> "B-D-Rob"
+	"B-D-Cop" -> "C-D-Rob"
+	"B-D-Rob" -> "B-A-Cop"
+	"B-D-Rob" -> "B-C-Cop"
+	"B-D-Rob" -> "B-D-Cop"
+	"C-A-Cop" -> "B-A-Rob"
+	"C-A-Cop" -> "C-A-Rob"
+	"C-A-Cop" -> "D-A-Rob"
+	"C-A-Rob" -> "C-A-Cop"
+	"C-A-Rob" -> "C-B-Cop"
+	"C-A-Rob" -> "C-D-Cop"
+	"C-B-Cop" -> "B-B-Rob"
+	"C-B-Cop" -> "C-B-Rob"
+	"C-B-Cop" -> "D-B-Rob"
+	"C-B-Rob" -> "C-A-Cop"
+	"C-B-Rob" -> "C-B-Cop"
+	"C-B-Rob" -> "C-C-Cop"
+	"C-C-Cop" -> "B-C-Rob"
+	"C-C-Cop" -> "C-C-Rob"
+	"C-C-Cop" -> "D-C-Rob"
+	"C-C-Rob" -> "C-B-Cop"
+	"C-C-Rob" -> "C-C-Cop"
+	"C-C-Rob" -> "C-D-Cop"
+	"C-D-Cop" -> "B-D-Rob"
+	"C-D-Cop" -> "C-D-Rob"
+	"C-D-Cop" -> "D-D-Rob"
+	"C-D-Rob" -> "C-A-Cop"
+	"C-D-Rob" -> "C-C-Cop"
+	"C-D-Rob" -> "C-D-Cop"
+	"D-A-Cop" -> "A-A-Rob"
+	"D-A-Cop" -> "C-A-Rob"
+	"D-A-Cop" -> "D-A-Rob"
+	"D-A-Rob" -> "D-A-Cop"
+	"D-A-Rob" -> "D-B-Cop"
+	"D-A-Rob" -> "D-D-Cop"
+	"D-B-Cop" -> "A-B-Rob"
+	"D-B-Cop" -> "C-B-Rob"
+	"D-B-Cop" -> "D-B-Rob"
+	"D-B-Rob" -> "D-A-Cop"
+	"D-B-Rob" -> "D-B-Cop"
+	"D-B-Rob" -> "D-C-Cop"
+	"D-C-Cop" -> "A-C-Rob"
+	"D-C-Cop" -> "C-C-Rob"
+	"D-C-Cop" -> "D-C-Rob"
+	"D-C-Rob" -> "D-B-Cop"
+	"D-C-Rob" -> "D-C-Cop"
+	"D-C-Rob" -> "D-D-Cop"
+	"D-D-Cop" -> "A-D-Rob"
+	"D-D-Cop" -> "C-D-Rob"
+	"D-D-Cop" -> "D-D-Rob"
+	"D-D-Rob" -> "D-A-Cop"
+	"D-D-Rob" -> "D-C-Cop"
+	"D-D-Rob" -> "D-D-Cop"
+	rankdir=LR
+	ranksep=2
+}

@@ -1,0 +1,98 @@
+graph h2 {
+	AA
+	BA
+	DA
+	AB
+	AD
+	BB
+	DB
+	AC
+	AE
+	BD
+	DD
+	BC
+	DC
+	BE
+	DE
+	CA
+	EA
+	CB
+	EB
+	CD
+	ED
+	CC
+	EC
+	CE
+	EE
+	AA -- BA
+	AA -- DA
+	AA -- AB
+	AA -- AD
+	BA -- CA
+	BA -- EA
+	BA -- BB
+	BA -- BD
+	DA -- CA
+	DA -- EA
+	DA -- DB
+	DA -- DD
+	AB -- BB
+	AB -- DB
+	AB -- AC
+	AB -- AE
+	AD -- BD
+	AD -- DD
+	AD -- AC
+	AD -- AE
+	BB -- CB
+	BB -- EB
+	BB -- BC
+	BB -- BE
+	DB -- CB
+	DB -- EB
+	DB -- DC
+	DB -- DE
+	AC -- BC
+	AC -- DC
+	AC -- AE
+	AE -- BE
+	AE -- DE
+	BD -- CD
+	BD -- ED
+	BD -- BC
+	BD -- BE
+	DD -- CD
+	DD -- ED
+	DD -- DC
+	DD -- DE
+	BC -- CC
+	BC -- EC
+	BC -- BE
+	DC -- CC
+	DC -- EC
+	DC -- DE
+	BE -- CE
+	BE -- EE
+	DE -- CE
+	DE -- EE
+	CA -- EA
+	CA -- CB
+	CA -- CD
+	EA -- EB
+	EA -- ED
+	CB -- EB
+	CB -- CC
+	CB -- CE
+	EB -- EC
+	EB -- EE
+	CD -- ED
+	CD -- CC
+	CD -- CE
+	ED -- EC
+	ED -- EE
+	CC -- EC
+	CC -- CE
+	EC -- EE
+	CE -- EE
+	rankdir=LR
+}

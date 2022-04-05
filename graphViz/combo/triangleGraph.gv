@@ -1,0 +1,84 @@
+digraph triangleGraph {
+	subgraph cluster_0 {
+		color=invis
+		label="Cop Turn"
+		"A-A-Cop" [label="A-A"]
+		"A-B-Cop" [label="A-B"]
+		"A-C-Cop" [label="A-C"]
+		"B-A-Cop" [label="B-A"]
+		"B-B-Cop" [label="B-B"]
+		"B-C-Cop" [label="B-C"]
+		"C-A-Cop" [label="C-A"]
+		"C-B-Cop" [label="C-B"]
+		"C-C-Cop" [label="C-C"]
+	}
+	subgraph cluster_1 {
+		color=invis
+		label="Robber Turn"
+		"A-A-Rob" [label="A-A"]
+		"A-B-Rob" [label="A-B"]
+		"A-C-Rob" [label="A-C"]
+		"B-A-Rob" [label="B-A"]
+		"B-B-Rob" [label="B-B"]
+		"B-C-Rob" [label="B-C"]
+		"C-A-Rob" [label="C-A"]
+		"C-B-Rob" [label="C-B"]
+		"C-C-Rob" [label="C-C"]
+	}
+	"A-A-Cop" -> "A-A-Rob"
+	"A-A-Cop" -> "B-A-Rob"
+	"A-A-Cop" -> "C-A-Rob"
+	"A-A-Rob" -> "A-A-Cop"
+	"A-A-Rob" -> "A-B-Cop"
+	"A-A-Rob" -> "A-C-Cop"
+	"A-B-Cop" -> "A-B-Rob"
+	"A-B-Cop" -> "B-B-Rob"
+	"A-B-Cop" -> "C-B-Rob"
+	"A-B-Rob" -> "A-A-Cop"
+	"A-B-Rob" -> "A-B-Cop"
+	"A-B-Rob" -> "A-C-Cop"
+	"A-C-Cop" -> "A-C-Rob"
+	"A-C-Cop" -> "B-C-Rob"
+	"A-C-Cop" -> "C-C-Rob"
+	"A-C-Rob" -> "A-A-Cop"
+	"A-C-Rob" -> "A-B-Cop"
+	"A-C-Rob" -> "A-C-Cop"
+	"B-A-Cop" -> "A-A-Rob"
+	"B-A-Cop" -> "B-A-Rob"
+	"B-A-Cop" -> "C-A-Rob"
+	"B-A-Rob" -> "B-A-Cop"
+	"B-A-Rob" -> "B-B-Cop"
+	"B-A-Rob" -> "B-C-Cop"
+	"B-B-Cop" -> "A-B-Rob"
+	"B-B-Cop" -> "B-B-Rob"
+	"B-B-Cop" -> "C-B-Rob"
+	"B-B-Rob" -> "B-A-Cop"
+	"B-B-Rob" -> "B-B-Cop"
+	"B-B-Rob" -> "B-C-Cop"
+	"B-C-Cop" -> "A-C-Rob"
+	"B-C-Cop" -> "B-C-Rob"
+	"B-C-Cop" -> "C-C-Rob"
+	"B-C-Rob" -> "B-A-Cop"
+	"B-C-Rob" -> "B-B-Cop"
+	"B-C-Rob" -> "B-C-Cop"
+	"C-A-Cop" -> "A-A-Rob"
+	"C-A-Cop" -> "B-A-Rob"
+	"C-A-Cop" -> "C-A-Rob"
+	"C-A-Rob" -> "C-A-Cop"
+	"C-A-Rob" -> "C-B-Cop"
+	"C-A-Rob" -> "C-C-Cop"
+	"C-B-Cop" -> "A-B-Rob"
+	"C-B-Cop" -> "B-B-Rob"
+	"C-B-Cop" -> "C-B-Rob"
+	"C-B-Rob" -> "C-A-Cop"
+	"C-B-Rob" -> "C-B-Cop"
+	"C-B-Rob" -> "C-C-Cop"
+	"C-C-Cop" -> "A-C-Rob"
+	"C-C-Cop" -> "B-C-Rob"
+	"C-C-Cop" -> "C-C-Rob"
+	"C-C-Rob" -> "C-A-Cop"
+	"C-C-Rob" -> "C-B-Cop"
+	"C-C-Rob" -> "C-C-Cop"
+	rankdir=LR
+	ranksep=2
+}

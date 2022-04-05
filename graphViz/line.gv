@@ -1,0 +1,10 @@
+graph line {
+	A
+	B
+	C
+	D
+	A -- B
+	B -- C
+	C -- D
+	rankdir=LR
+}

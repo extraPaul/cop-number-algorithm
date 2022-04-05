@@ -1,0 +1,10 @@
+graph square {
+	A
+	B
+	D
+	C
+	A -- B
+	A -- D
+	B -- C
+	D -- C
+}
