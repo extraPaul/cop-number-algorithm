@@ -26,20 +26,26 @@ class Combination(object):
 
 
 class MultiCombination(object):
+
+    @staticmethod
+    def generate_name(cops: list[Vertex], robber: Vertex, is_cop):
+        name = ""
+        for c in cops:
+            name += c.name + "-"
+
+        name += (robber.name + ("-Cop" if is_cop else "-Rob"))
+        return name
+
     # Creates a new vertex with empty edges.
     # @param vName Name of the vertex
-    def __init__(self, cops: list[Vertex], rober: Vertex, is_cop=False, force_movement=False):
+    def __init__(self, cops: list[Vertex], robber: Vertex, is_cop=False, force_movement=False):
         self.cops = cops
-        self.rober = rober
+        self.robber = robber
         self.cop_turn = is_cop
         self.marked = False
         self.adjacent:list[MultiCombination] = []
 
-        self.name = ""
-        for c in cops:
-            self.name += c.name + "-"
-
-        self.name += (rober.name + ("-Cop" if is_cop else "-Rob"))
+        self.name = MultiCombination.generate_name(cops, robber, is_cop)
 
     def add_edge(self, c: MultiCombination):
         self.adjacent.append(c)

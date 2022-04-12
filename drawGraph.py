@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 def getGraphViz(graph: nx.Graph, name):
-    viz = graphviz.Graph(name, format='png', engine='dot')
+    viz = graphviz.Graph(name, format='png', engine='neato')
 
     for n in list(graph.nodes):
         viz.node(n)
@@ -15,7 +15,7 @@ def getGraphViz(graph: nx.Graph, name):
     for e in list(graph.edges):
         viz.edge(e[0], e[1])
 
-    # viz.attr(rankdir='LR')
+    # viz.attr(rankdir='TB')
 
     return viz
 

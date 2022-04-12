@@ -80,5 +80,6 @@ digraph triangleGraph {
 	"C-C-Rob" -> "C-B-Cop"
 	"C-C-Rob" -> "C-C-Cop"
 	rankdir=LR
-	ranksep=2
+	nodesep=1
+	ranksep=4
 }

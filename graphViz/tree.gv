@@ -1,0 +1,21 @@
+graph tree {
+	A
+	B
+	C
+	D
+	E
+	F
+	G
+	H
+	I
+	J
+	A -- B
+	A -- C
+	A -- D
+	A -- E
+	D -- F
+	D -- G
+	E -- H
+	H -- I
+	H -- J
+}

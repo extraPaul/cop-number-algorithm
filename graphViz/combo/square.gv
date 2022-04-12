@@ -2,42 +2,42 @@ digraph square {
 	subgraph cluster_0 {
 		color=invis
 		label="Cop Turn"
-		"A-A-Cop" [label="A-A" style=filled]
+		"A-A-Cop" [label="A-A"]
 		"A-B-Cop" [label="A-B"]
 		"A-C-Cop" [label="A-C"]
 		"A-D-Cop" [label="A-D"]
 		"B-A-Cop" [label="B-A"]
-		"B-B-Cop" [label="B-B" style=filled]
+		"B-B-Cop" [label="B-B"]
 		"B-C-Cop" [label="B-C"]
 		"B-D-Cop" [label="B-D"]
 		"C-A-Cop" [label="C-A"]
 		"C-B-Cop" [label="C-B"]
-		"C-C-Cop" [label="C-C" style=filled]
+		"C-C-Cop" [label="C-C"]
 		"C-D-Cop" [label="C-D"]
 		"D-A-Cop" [label="D-A"]
 		"D-B-Cop" [label="D-B"]
 		"D-C-Cop" [label="D-C"]
-		"D-D-Cop" [label="D-D" style=filled]
+		"D-D-Cop" [label="D-D"]
 	}
 	subgraph cluster_1 {
 		color=invis
 		label="Robber Turn"
-		"A-A-Rob" [label="A-A" style=filled]
+		"A-A-Rob" [label="A-A"]
 		"A-B-Rob" [label="A-B"]
 		"A-C-Rob" [label="A-C"]
 		"A-D-Rob" [label="A-D"]
 		"B-A-Rob" [label="B-A"]
-		"B-B-Rob" [label="B-B" style=filled]
+		"B-B-Rob" [label="B-B"]
 		"B-C-Rob" [label="B-C"]
 		"B-D-Rob" [label="B-D"]
 		"C-A-Rob" [label="C-A"]
 		"C-B-Rob" [label="C-B"]
-		"C-C-Rob" [label="C-C" style=filled]
+		"C-C-Rob" [label="C-C"]
 		"C-D-Rob" [label="C-D"]
 		"D-A-Rob" [label="D-A"]
 		"D-B-Rob" [label="D-B"]
 		"D-C-Rob" [label="D-C"]
-		"D-D-Rob" [label="D-D" style=filled]
+		"D-D-Rob" [label="D-D"]
 	}
 	"A-A-Cop" -> "A-A-Rob"
 	"A-A-Cop" -> "B-A-Rob"
@@ -136,5 +136,5 @@ digraph square {
 	"D-D-Rob" -> "D-C-Cop"
 	"D-D-Rob" -> "D-D-Cop"
 	rankdir=LR
-	ranksep=2
+	ranksep=3
 }

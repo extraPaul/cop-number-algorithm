@@ -18,8 +18,8 @@ def getGraphViz(graph: MultiComboGraph, name):
         c.attr(label='Cop Turn')
         for n in graph.cop_list():
             # Name needs to be unique, but lable doesn't
-            # if False:
-            if n.marked:
+            if False:
+            # if n.marked:
                 c.node(n.name, n.name.replace('-Cop', ''), style='filled')
             else:
                 c.node(n.name, n.name.replace('-Cop', ''))
@@ -34,14 +34,14 @@ def getGraphViz(graph: MultiComboGraph, name):
     with g.subgraph(name='cluster_1') as c:
         c.attr(color='invis')
         c.attr(label='Robber Turn')
-        for n in graph.rober_list():
-            # if False:
-            if n.marked:
+        for n in graph.robber_list():
+            if False:
+            # if n.marked:
                 c.node(n.name, n.name.replace('-Rob', ''), style='filled')
             else:
                 c.node(n.name, n.name.replace('-Rob', ''))
 
-        # robberList = sorted(graph.rober_list(), key=lambda x: x.name)
+        # robberList = sorted(graph.robber_list(), key=lambda x: x.name)
         # for i in range(len(robberList) - 1):
         #     c.edge(robberList[i].name, robberList[i+1].name, style='invis')
 
@@ -50,8 +50,8 @@ def getGraphViz(graph: MultiComboGraph, name):
         g.edge(e[0], e[1])
 
     g.attr(rankdir='LR')
-    # g.attr(nodesep='1')
-    g.attr(ranksep='2')
+    g.attr(nodesep='1')
+    g.attr(ranksep='4')
 
     return g
 

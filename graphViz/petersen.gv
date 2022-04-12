@@ -1,0 +1,27 @@
+graph petersen {
+	A
+	B
+	E
+	F
+	C
+	G
+	D
+	H
+	I
+	J
+	A -- B
+	A -- E
+	A -- F
+	B -- C
+	B -- G
+	E -- D
+	E -- J
+	F -- H
+	F -- I
+	C -- D
+	C -- H
+	G -- I
+	G -- J
+	D -- I
+	H -- J
+}
